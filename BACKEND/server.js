@@ -16,7 +16,7 @@ dotenv.config("./.env")
 const app = express();
 
 app.use(cors({
-    origin: 'https://url-shortner-henna-five.vercel.app', // vercel React app
+    origin: ['https://url-shortner-henna-five.vercel.app/',"http://localhost:5173/"],// vercel React app
     credentials: true 
 }));
 
