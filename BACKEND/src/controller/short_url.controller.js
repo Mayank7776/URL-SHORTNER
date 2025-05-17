@@ -1,3 +1,5 @@
+import dotenv from "dotenv"
+dotenv.config()
 import { getShortUrl } from "../dao/short_url.js"
 import { createShortUrlWithoutUser, createShortUrlWithUser } from "../services/short_url.service.js"
 import wrapAsync from "../utils/tryCatchWrapper.js"
@@ -23,6 +25,6 @@ export const redirectFromShortUrl = wrapAsync(async (req,res)=>{
 
 export const createCustomShortUrl = wrapAsync(async (req,res)=>{
     const {url,slug} = req.body
-    const shortUrl = await createShortUrlWithoutUser(url,customUrl)
+    const shortUrl = await createShortUrlWithoutUser(url,slug)
     res.status(200).json({shortUrl : process.env.APP_URL + shortUrl})
 })
